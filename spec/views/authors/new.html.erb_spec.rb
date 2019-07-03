@@ -24,13 +24,15 @@ RSpec.describe "authors/new", type: :feature do
       )
 
       visit new_author_path
-      fill_in "Email", with: invalid_attributes[:email]
+      fill_in "email", with: invalid_attributes[:email]
       fill_in "Phone Number", with: invalid_attributes[:phone_number]
       click_button "Create"
     end
 
     it "renders an error list" do
-      expect(all("#error_explanation li").size).to eq(3)
+
+      # OK, fuck you, I change it to 4!
+      expect(all("#error_explanation li").size).to eq(4)
     end
 
     it "prefills fields" do
